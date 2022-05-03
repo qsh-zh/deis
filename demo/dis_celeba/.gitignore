@@ -1,0 +1,15 @@
+# Compiled python modules.
+*.pyc
+*.png
+
+temp/
+temp
+
+
+ckpts
+ckpts/
+
+# Byte-compiled
+__pycache__/
+.cache/
+.idea/

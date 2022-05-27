@@ -4,6 +4,8 @@
 
 A clean implementation for DEIS and iPNDM
 
+![PIS](assets/fig1.png)
+
 # PyTorch Usage
 
 ## If score model is trained with discrete time
@@ -32,9 +34,12 @@ sampler_fn = get_sampler(
 sample = sampler_fn(noise)
 ```
 
-## Demo: celeba 10 step with an FID less than 7.0 ( 6.26 tested on my Machine)
+## Demo: celeba 10 step with an FID less than 7.0 ( 6.26 tested on my machine)
+
+Based on [PNDM codebase](https://github.com/luping-liu/PNDM).
 
 ```shell
+# ! make sure you download checkpoint and modify path in run.sh
 cd demo/dis_celeba
 bash run.sh
 ```
@@ -56,10 +61,36 @@ sampler_fn = get_sampler(
 )
 ```
 
+
 # Jax Usage
 
+## If score model is trained with continuous time
 
-## Reference
+```python
+from jax_deis import CntVPSDE, get_sampler
+vpsde = CntVPSDE(alpha_fn, t_start, t_end)
+
+sampler_fn = get_sampler(
+    vpsde, 
+    num_step, 
+    eps_fn, 
+    order=3, # deis support 0,1,2,3, iPNDM will ignore the arg
+    method="deis", # support deis or iPNDM
+)
+```
+
+## Demo: CIFAR10 in 7 step
+
+Based on [score_sde](https://github.com/yang-song/score_sde)
+
+```shell
+# ! make sure you download checkpoint and modify path in deis.ipynb
+cd demo/cnt_cifar
+jupyter lab
+# have fun with deis.ipynb
+```
+
+# Reference
 
 ```tex
 @article{zhang2022fast,

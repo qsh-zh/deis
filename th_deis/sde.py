@@ -113,6 +113,15 @@ class DisVPSDE:
 
         if last_step:
             steps_out = np.array([0, *steps_out])
+        
+        _, idx = np.unique(steps_out, return_index=True)
+        steps_out = steps_out[np.sort(idx)]
+        
+        remain_steps = num_timesteps + 1 - steps_out.shape[0]
+        if remain_steps > 0:
+            l = np.array([i for i in range(self.t_end) if i not in steps_out][:remain_steps])
+            steps_out = np.concatenate([steps_out, l], axis=0)
+            steps_out = np.sort(steps_out)
 
         return np.flip(steps_out).copy()
 

@@ -36,16 +36,9 @@ def args_and_config():
                         help="Choose the numerical methods (DDIM, FON, S-PNDM, F-PNDM, PF)")
     parser.add_argument("--sample_speed", type=int, default=50,
                         help="Control the total generation step")
-    parser.add_argument("--ei_order", type=int, default=2,
-                        help="ei_order")
-    parser.add_argument("--is_ei", default=True, action='store_false',
-                        help="enable ei")
-    parser.add_argument("--last_step", default=True, action='store_false',
-                        help="use last step")
-    parser.add_argument("--ei_str", type=str, default="uniform",
-                        help="ei strategy")
-    parser.add_argument("--ei_method", type=str, default="deis",
-                        help="deis or ipndm")
+    # modification for DEIS
+    parser.add_argument("--is_deis", default=True, action='store_false',
+                        help="enable deis by default")
     parser.add_argument("--device", type=str, default='cuda',
                         help="Choose the device to use")
     parser.add_argument("--image_path", type=str, default='temp/sample',

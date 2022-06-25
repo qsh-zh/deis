@@ -15,7 +15,7 @@
 import os
 import sys
 import time
-from th_deis.sde import DisVPSDE, get_sampler
+from th_deis import DiscreteVPSDE, get_sampler
 import torch as th
 import numpy as np
 import torch.optim as optimi
@@ -52,17 +52,14 @@ class Runner(object):
         self.config = config
         self.diffusion_step = config['Schedule']['diffusion_step']
         self.sample_speed = args.sample_speed
-        self.ei_order = args.ei_order
-        self.is_ei = args.is_ei
-        self.ei_str = args.ei_str
-        self.ei_method = args.ei_method
+        self.is_deis = args.is_deis
         self.device = th.device(args.device)
 
         self.schedule = schedule
         self.model = model
 
-        if self.is_ei:
-            print(f"Using {self.ei_method} {self.ei_order} {self.sample_speed} NFE")
+        if self.is_deis:
+            print(f"Using tAB-DEIS {self.sample_speed} NFE")
         else:
             print(f"Using {self.schedule.method}")
 
@@ -183,20 +180,35 @@ class Runner(object):
         else:
             my_iter = range(total_num // n + 1)
 
-        vpsde = DisVPSDE(self.schedule.alphas_cump)
+        # modification for DEIS
+
+        vpsde = DiscreteVPSDE(self.schedule.alphas_cump)
         def eps_fn(x, s_t):
             vec_t = (th.ones(x.shape[0])).float().to(self.device) * s_t
             with th.no_grad():
                 # ! the checkpoint need vec_t shift 1 :(
                 return model(x, vec_t - 1)
 
-        sampler_fn = get_sampler(vpsde, self.sample_speed, self.ei_str, eps_fn, self.ei_order, method=self.ei_method, last_step=self.args.last_step)
+        sampler_fn = get_sampler(
+            # args for diffusion model
+            vpsde,
+            eps_fn,
+            # args for timestamps scheduling
+            ts_phase="t", # support "rho", "t", "log"
+            ts_order=2.0,
+            num_step=10,
+            # deis choice
+            method = "t_ab", # deis sampling algorithms: support "rho_rk", "rho_ab", "t_ab", "ipndm"
+            ab_order= 3, # for "rho_ab", "t_ab" algorithms, other algorithms will ignore the arg
+            # rk_method="3kutta" # for "rho_rk" algorithms, other algorithms will ignore the arg
+            rk_method="2heun" # for "rho_rk" algorithms, other algorithms will ignore the arg
+        )
 
         for _ in my_iter:
             noise = th.randn(n, config['channels'], config['image_size'],
                              config['image_size'], device=self.device)
 
-            if self.is_ei:
+            if self.is_deis:
                 img = sampler_fn(noise)
             else:
                 img = self.sample_image(noise, seq, model, pflow)

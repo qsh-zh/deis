@@ -1,7 +1,7 @@
 # Demo of DEIS on PNDM codebase
 
 ```shell
-# demo of celeba
+# demo of celeba with tAB-DEIS 10 NFE, fid should less than 7
 # download the checkpoints and fid_stats and change path in run.sh
 bash run.sh
 ```

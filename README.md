@@ -94,7 +94,8 @@ $$
 dx = F_tx dt + 0.5 G_tG_t^T L_t^{-T} \epsilon(x, t) dt
 $$
 
-where $L_t L_t^{T} = \Sigma_t $ and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
+where $L_t L_t^{T} = \Sigma_t$ 
+and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
 
 ## Exponential Integrator
 
@@ -121,7 +122,10 @@ $$
 \dot{v}_\rho = \epsilon(x(v), t(\rho))
 $$
 
-where $y_t = v_\rho$ and $d \rho = 0.5 \Psi(t) G_t G_t^T L_t^{-T} dt$. And $x(v)$ maps $v_\rho$ to $x_t$ and $t(\rho)$ maps $\rho$ to $t$.
+where 
+$y_t = v_\rho$ 
+and $d \rho = 0.5 \Psi(t) G_t G_t^T L_t^{-T} dt$. 
+And $x(v)$ maps $v_\rho$ to $x_t$ and $t(\rho)$ maps $\rho$ to $t$.
 
 ## High order solver
 

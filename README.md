@@ -94,7 +94,7 @@ $$
 dx = F_tx dt + 0.5 G_tG_t^T L_t^{-T} \epsilon(x, t) dt
 $$
 
-where $L_t L_t^{T} = \Sigma_t$ and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
+where $L_t L_t^{T} = \Sigma_t $ and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
 
 ## Exponential Integrator
 

@@ -91,10 +91,10 @@ $$
 ## Backward ODE
 
 $$
-dx = F_tx dt + 0.5 G_tG_t^T \mathbf{L}_t^{-T} \epsilon(x, t) dt
+dx = F_tx dt + 0.5 G_tG_t^T L_t^{-T} \epsilon(x, t) dt
 $$
 
-where $\mathbf{L}_t \mathbf{L}_t^{T} = \Sigma_t$ and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
+where $L_t L_t^{T} = \Sigma_t$ and $\Sigma_t$ are variance of $p_{0t}(x_t | x_0)$.
 
 ## Exponential Integrator
 
@@ -109,6 +109,7 @@ And ODE is simplified into
 $$
 \dot{y}_t = 0.5 \Psi(t) G_t G_t^T L_t^{-T} \epsilon(x(y), t)
 $$
+
 where $x(y)$ maps $y_t$ to $x_t$.
 
 

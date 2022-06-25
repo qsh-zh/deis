@@ -125,7 +125,12 @@ $$
 where 
 $y_t = v_\rho$ 
 and $d \rho = 0.5 \Psi(t) G_t G_t^T L_t^{-T} dt$. 
-And $x(v)$ maps $v_\rho$ to $x_t$ and $t(\rho)$ maps $\rho$ to $t$.
+And $x(v)$ 
+maps $v_\rho$ 
+to $x_t$,
+$t(\rho)$ 
+maps $\rho$ 
+to $t$.
 
 ## High order solver
 

@@ -76,11 +76,11 @@ vpsde = deis.DiscreteVPSDE(discrete_alpha)
 <details>
 <summary>Exponential integrator in diffusion model</summary>
 
-The key insight of exponential integrator is taking advantages of all math structure present in ODEs. The goal is to reduce discretization error as small as possible. 
+The key insight of exponential integrator is taking advantage of all math structures present in ODEs. The goal is to reduce discretization error as small as possible. 
 
-The math structure presents in diffusion models, including semilinear structure, analystic formula for drift and diffusion coefficients.
+The math structure in diffusion models includes semilinear structure, the analytic formula for drift and diffusion coefficients.
 
-Below we present a short derivation for applications of exponential integrator in diffusion model.
+Below we present a short derivation for applications of the exponential integrator in diffusion model.
 
 ## Forward SDE
 
@@ -140,7 +140,8 @@ $$
 \dot{v}_\rho = \epsilon(x(v), t(\rho))
 $$
 
-Then we can use well-established ODE solver, such as multistep and runge kutta.
+As RHS is a nerual network, we can not further simplify ODE unless we have knowledge for the black-box function.
+Then we can use well-established ODE solvers, such as multistep and runge kutta.
 </details>
 
 # Demo

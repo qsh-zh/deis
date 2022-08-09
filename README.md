@@ -146,7 +146,7 @@ Then we can use well-established ODE solvers, such as multistep and runge kutta.
 
 # Demo
 
-- [continuous vpsde](demo/cnt_cifar/deis.ipynb) Based on [score_sde codebase](https://github.com/yang-song/score_sde)
+- [continuous vpsde](demo/continuous_cifar/deis.ipynb) Based on [score_sde codebase](https://github.com/yang-song/score_sde). CIFAR10 images in 7 steps
 - [discrete vpsde](demo/discrete_celeba) Based on [PNDM codebase](https://github.com/luping-liu/PNDM)
 
 

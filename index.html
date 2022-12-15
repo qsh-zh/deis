@@ -184,6 +184,7 @@
         <div class="buttons">
             <a href="https://arxiv.org/abs/2204.13902" target="_blank" class="btn btn-primary my-2">Paper (arxiv)</a>
             <a href="https://github.com/qsh-zh/deis" target="_blank" class="btn btn-primary my-2">Code</a>
+            <a href="https://github.com/qsh-zh/deis" target="_blank" class="btn btn-primary my-2">Poster</a>
         </div>
 
         <div class="container" style="max-width: 900px;">
@@ -232,309 +233,66 @@
     <!-- Summary video -->
     <div class="container" style="max-width: 768px;">
         <div id="videos" class="carousel slide" data-interval="false" data-ride="carousel">
-            <ol class="carousel-indicators hidden">
-                <li data-target="#videos" data-slide-to="0" class="active"></li>
-                <li data-target="#videos" data-slide-to="1"></li>
-                <li data-target="#videos" data-slide-to="2"></li>
-            </ol>
 
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="grid-container-video" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div><h6>Video (ECCV 2022)</h6></div></div>
-                        <div class="embed-responsive embed-responsive-16by9" style="margin: 0;">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/56aA_FaeAPY" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container-video" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div><h6>Video (GauGAN2 Official)</h6></div></div>
-                        <div class="embed-responsive embed-responsive-16by9" style="margin: 0;">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/p9MAvRpT6Cg" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container-video" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div><h6>Video (GauGAN360)</h6></div></div>
-                        <div class="embed-responsive embed-responsive-16by9" style="margin: 0;">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2YwTkrmogDg" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-
-
-            <a class="carousel-control-prev" href="#videos" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#videos" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-<!--        <h5 class="text-center">Video (ECCV Supplementary Material)</h5>-->
-<!--        <div class="embed-responsive embed-responsive-16by9" style="margin: 0;">-->
-<!--            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/56aA_FaeAPY" allowfullscreen></iframe>-->
-<!--        </div>-->
-
-        <!-- Generator Architecture -->
-        <div class="row">
-            <div class="col-md-12">
-                <hr style="max-width: 768px;">
-                <h5 class="text-center">Product-of-Experts</h5>
-                <p>
-                    Our goal is to train a single generative model that captures the image distribution conditioned on an arbitrary subset of modalities.
-                    In this paper, we consider four different modalities including <i>text</i>, <i>semantic segmentation</i>, <i>sketch</i>, and <i>style reference</i>.
-                    Intuitively, each input modality adds a constraint the synthesized image must satisfy.
-                    The set of images that satisfies all constraints is the intersection of the sets each of which satisfies one individual constraint.
-                    As illustrated in the figure below, we model this by assuming that the jointly conditioned probability distribution is proportional to the product of singly conditioned probability distributions.
-                    Under this setting, for the product distribution to have a high density in a region, each of the individual distributions needs to have a high density in that region, thereby satisfying each constraint.
-                    This has also been previously referred to as <a href='https://www.cs.toronto.edu/~hinton/absps/icann-99.pdf' target='_blank'>product-of-experts</a>.
-                </p>
-                <div class="row justify-content-center">
-                    <img src="images/sets.jpg" style="height: 150px;margin-bottom: 8px;">
-                    <img src="images/poe_1d.jpg" style="height: 150px;margin-bottom: 8px;">
-                </div>
-                <p class="caption text-center">The product of distributions is analogous to the intersection of sets.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <hr style="max-width: 768px;">
-                <h5 class="text-center">Abstract</h5>
-                <p>
-                    The past few years have witnessed the great success of Diffusion models (DMs) in generating high-fidelity samples in generative modeling tasks. 
-                    A major limitation of the DM is its notoriously slow sampling procedure which normally requires hundreds to thousands of time discretization steps of the learned diffusion process to reach the desired accuracy. 
-                    Our goal is to develop a fast sampling method for DMs with a much less number of steps while retaining high sample quality. To this end, we systematically analyze the sampling procedure in DMs and identify key factors that affect the sample quality, among which the method of discretization is most crucial. 
-                    By carefully examining the learned diffusion process, we propose Diffusion Exponential Integrator Sampler (DEIS). It is based on the Exponential Integrator designed for discretizing ordinary differential equations (ODEs) and leverages a semilinear structure of the learned diffusion process to reduce the discretization error. The proposed method can be applied to any DMs and can generate high-fidelity samples in as few as 10 steps. 
-                    Moreover, by directly using pre-trained DMs, we achieve state-of-art sampling performance when the number of score function evaluation (NFE) is limited,  e.g., 4.17 FID with 10 NFEs, 2.86 FID with only 20 NFEs on CIFAR10.
-                </p>
-            </div>
-        </div>
         
-
-        <!-- Generator Architecture -->
         <div class="row">
             <div class="col-md-12">
                 <hr style="max-width: 768px;">
-                <h5 class="text-center">Generator Design</h5>
-                <p> The figure below shows the architecture of our generator. We encode each modality into a feature vector which is then aggregated in Global PoE-Net using product-of-experts.
-                The decoder generates the image using the output of Global PoE-Net and skip connections from the segmentation and sketch encoders.</p>
-                <img class="mx-auto d-block" src="images/overview.jpg" style="width: 100%;margin-bottom: 8px;">
-
-                <p class="caption text-center">Our generator architecture. Check our paper to see more details of the architecture.</p>
+                <h5 class="text-center">News</h5>
+                <ul id='relatedwork'>
+                    <div align="left">
+                    <li font-size: 15px> <strong>[Dec 2022]</strong> <a href="https://qsh-zh.github.io/deis">Project page</a> alive!
+                    </li>
+                    <li font-size: 15px>
+                        <strong>[Sep 2022]</strong> &#129301; DEIS was rejected by Neurips for "The reviewers pointed out that the paper does not propose any new methods, but applies an existing method to this particular domain. The contribution is mainly empirical, rather than theoretical, but lack comprehensive comparison".
+                    </li>
+                    <li font-size: 15px>
+                        <strong>[May 2022]</strong> <a href="https://github.com/qsh-zh/deis">DEIS code</a> has been released!
+                    </li>
+                    <li font-size: 15px> <strong>[Apr 2022]</strong> 
+                        <a href="https://arxiv.org/abs/2204.13902">Draft</a> released on arXiv!
+                    </li>
+                    </div>
+                </ul>
             </div>
         </div>
-
-        <!-- Discriminator Design -->
-        <div class="row">
-            <div class="col-md-12">
-                <hr style="max-width: 768px;">
-                <h5 class="text-center">Discriminator Design</h5>
-                <p>
-                    We propose a multimodal projection discriminator that generalizes <a href='https://arxiv.org/abs/1802.05637' target='_blank'>projection discriminator</a> to handling multiple conditional inputs.
-                    Unlike the standard projection discriminator that computes a single inner product between the image embedding and the conditional embedding, we compute one inner product per input modality and add them together to obtain the final loss.
-                </p>
-                <img class="mx-auto d-block" src="images/dis.jpg" style="width: 100%;margin-bottom: 8px;">
-
-                <p class="caption text-center">Comparison between the standard projection discriminator (left) and our multimodal projection discriminator (right).</p>
-            </div>
-        </div>
-
-        <map name="image-map">
-            <area target="_blank" alt="" title="" href="http://stackoverflow.com/questions/7844399/responsive-image-map" coords="1,249,373,631" shape="rect">
-        </map>
     </div>
 
-    <!-- Outputs. -->
-    <hr style="max-width: 768px;">
-    <div class="container" style="max-width: 768px;">
-        <div class="text-center">
-            <h5>Results</h5>
-        </div>
+        <!-- Generator Architecture -->
         <div class="row">
             <div class="col-md-12">
-                <p> When tested using a single input modality, PoE-GAN outperforms previous state-of-the-art approaches specifically designed for that modality, such as the segmentation-to-image methods (<a href='https://nvlabs.github.io/SPADE/' target='_blank'>SPADE</a>, <a href='https://arxiv.org/abs/2012.04781' target='_blank'>OASIS</a>) and the text-to-image synthesis methods (<a href='https://arxiv.org/abs/2008.05865' target='_blank'>DF-GAN</a>, <a href='https://arxiv.org/abs/2107.02423' target='_blank'>DM-GAN + CL</a>).</p>
+                <hr style="max-width: 768px;">
+                <h3 class="text-center">Acceleration magic: discretization matters</h3>
+                <img class="mx-auto d-block" src="images/deis_ab.png" style="width: 100%;margin-bottom: 8px;">
+                <div class="row justify-content-center">
+                    <img src="images/abalation.jpg" style="height: 150px;margin-bottom: 8px;">
+                    <img src="images/deis_order.jpg" style="height: 150px;margin-bottom: 8px;">
+                </div>
             </div>
         </div>
-        <div id="seg2img" class="carousel slide" data-interval="false" data-ride="carousel">
-            <ol class="carousel-indicators hidden">
-                <li data-target="#seg2img" data-slide-to="0" class="active"></li>
-                <li data-target="#seg2img" data-slide-to="1"></li>
-                <li data-target="#seg2img" data-slide-to="2"></li>
-            </ol>
-            <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                <div class="grid-item"><div><h6>Segmentation</h6></div></div>
-                <div class="grid-item"><h6><a href='https://nvlabs.github.io/SPADE/' target='_blank'>SPADE</a></h6></div>
-                <div class="grid-item"><h6><a href='https://arxiv.org/abs/2012.04781' target='_blank'>OASIS</a></h6></div>
-                <div class="grid-item"><h6>PoE-GAN (ours)</h6></div>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000475732.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000475732.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000475732.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000475732.jpg" style="width: 100%;"></div>
 
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000463647.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000463647.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000463647.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000463647.jpg" style="width: 100%;"></div>
-
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000459757.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000459757.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000459757.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000459757.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000015517.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000015517.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000015517.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000015517.jpg" style="width: 100%;"></div>
-
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000469246.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000469246.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000469246.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000469246.jpg" style="width: 100%;"></div>
-
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000055528.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000055528.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000055528.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000055528.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000344029.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000344029.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000344029.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000344029.jpg" style="width: 100%;"></div>
-
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000404568.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000404568.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000404568.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000404568.jpg" style="width: 100%;"></div>
-
-                        <div class="grid-item"><img src="images/comparison/coco_seg/seg_000000543043.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/spade_000000543043.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/oasis_000000543043.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_seg/pegan_000000543043.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-            <p class="caption text-center" style="margin-bottom: 20px">Comparison with Segmentation-to-Image Synthesis Methods on MS-COCO.</p>
-            <a class="carousel-control-prev" href="#seg2img" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#seg2img" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        <div id="text2img" class="carousel slide" data-interval="false" data-ride="carousel">
-            <ol class="carousel-indicators hidden">
-                <li data-target="#text2img" data-slide-to="0" class="active"></li>
-                <li data-target="#text2img" data-slide-to="1"></li>
-                <li data-target="#text2img" data-slide-to="2"></li>
-            </ol>
-
-            <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                <div class="grid-item"><div><h6>Text</h6></div></div>
-                <div class="grid-item"><h6><a href='https://arxiv.org/abs/2008.05865' target='_blank'>DF-GAN</a></h6></div>
-                <div class="grid-item"><h6><a href='https://arxiv.org/abs/2107.02423' target='_blank'>DM-GAN + CL</a></h6></div>
-                <div class="grid-item"><h6>PoE-GAN (ours)</h6></div>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A man riding a snowboard down a snow covered slope.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000117645.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000117645.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000117645.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A red stop sign sitting on the side of a road.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000193884.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000193884.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000193884.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A kitchen with a counter and a table with chairs.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000034873.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000034873.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000034873.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A view of mountains from the window of a jet airplane.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000208208.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000208208.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000208208.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A blueberry cake is on a plate and is topped with butter.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000184384.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000184384.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000184384.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>Three men each holding something and posing for a picture.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000571598.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000571598.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000571598.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="grid-container" style="width: 90%; margin-left: auto; margin-right: auto">
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A plate holds a good size portion of a cooked, mixed dish that includes broccoli and pasta.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000407524.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000407524.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000407524.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A red blue and yellow train and some people on a platform.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000439593.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000439593.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000439593.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><div style="margin-left: 10px; margin-right: 10px;"><h6>A desk set up as a workstation with a laptop.</h6></div></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dfgan_000000513688.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/dmgan_cl_000000513688.jpg" style="width: 100%;"></div>
-                        <div class="grid-item"><img src="images/comparison/coco_text/pegan_000000513688.jpg" style="width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-            <p class="caption text-center">Comparison with Text-to-Image Synthesis Methods on MS-COCO.</p>
-            <a class="carousel-control-prev" href="#text2img" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#text2img" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-<!--        <hr style="max-width: 768px;">-->
-<!--        <div class="text-center">-->
-<!--            <h5>Diverse output (Landscape)</h5>-->
-<!--        </div>-->
-
-        <hr style="max-width: 768px;">
         <div class="row">
             <div class="col-md-12">
-                <p> Abalation CIFAR10
-                </p>
+                <hr style="max-width: 768px;">
+                <h5 class="text-center">Another approach to reduce discretization error: simplifying ODE</h5>
+                <p class="text-center">An example of DDPM</p>
+                <img class="mx-auto d-block" src="images/deis_rho.png" style="width: 100%;margin-bottom: 8px;">
             </div>
         </div>
 
-        
-        </div>
 
-        <hr style="max-width: 768px;">
         <div class="row">
             <div class="col-md-12">
-                <p> DEIS on LDM NFE=15</p>
+                <hr style="max-width: 768px;">
+                <h5 class="text-center">Variants of DEIS on pre-tranied CIFAR10 diffusion models</h5>
+                <img class="mx-auto d-block" src="images/table_deis.jpg" style="width: 100%;margin-bottom: 8px;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr style="max-width: 768px;">
+                <h5 class="text-center">DEIS on LDM NFE=15</h5>
             </div>
         </div>
 
@@ -595,10 +353,11 @@
         </div>
 
 
-        <hr style="max-width: 768px;">
+        <!-- <hr style="max-width: 768px;"> -->
             <div class="row">
                 <div class="col-md-12">
-                    <p> DEIS on imagenet 256x256</p>
+                    <hr style="max-width: 768px;">
+                    <h5 class="text-center">DEIS on ImageNet</h5>
                 </div>
                 <img class="mx-auto d-block" src="images/deis_vs_dpm_v0.jpg" style="width: 100%;margin-bottom: 20px;">
                 <img class="mx-auto d-block" src="images/deis_vs_dpm.jpg" style="width: 100%;margin-bottom: 20px;">
@@ -619,9 +378,9 @@
             <div align="left">
             <li font-size: 15px> Concurrent work <a href="https://arxiv.org/abs/2206.00364"><strong>T.Karras et al.</strong></a> proposed usage of Heun solver in a rescaled ODE, which is equivalent to <strong>\(\rho\)RK-DEIS</strong> with Heun solver. Their rescaled ODE is equivalent to our simplified ODE.
             </li>
-            <li font-size: 15px> Concurrent work <a href="https://arxiv.org/abs/2206.00927"><strong>DPM-Solver</strong></a> also starts from analytic solution. DPM-Solver discrete solution with single-step solver while DEIS includes single-step / multistep solvers.
+            <li font-size: 15px> Concurrent work <a href="https://arxiv.org/abs/2206.00927"><strong>DPM-Solver</strong></a> also proposed high order ODE solvers to accelerate sampling. DEIS is faster than DPM-Solver thanks to advantages of multistep solvers over singlestep solvers when NFE is small.
             </li>
-            <li font-size: 15px> <a href="https://arxiv.org/abs/2206.05564"><strong>gDDIM</strong></a> accelerates non-isotropic diffusion models.
+            <li font-size: 15px> <a href="https://arxiv.org/abs/2206.05564"><strong>gDDIM</strong></a> extends multistep accelerations to non-isotropic diffusion models~(e.g. diffusion models with general corruptions).
             </li>
             </div>
             </ul>

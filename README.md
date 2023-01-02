@@ -1,8 +1,14 @@
-# Fast Sampling of Diffusion Models with Exponential Integrator
+# <p align="center">Fast Sampling of Diffusion Models with Exponential Integrator</p>
 
-[Qinsheng Zhang](https://qsh-zh.github.io/), [Yongxin Chen](https://yongxin.ae.gatech.edu/)
+<div align="center">
+  <a href="https://qsh-zh.github.io/" target="_blank">Qinsheng&nbsp;Zhang</a> &emsp; <b>&middot;</b> &emsp;
+  <a href="https://yongxin.ae.gatech.edu/" target="_blank">Yongxin&nbsp;Chen</a>
+  <br> <br>
+  <a href="arxiv.org/abs/2204.13902" target="_blank">Paper</a> &emsp;
+  <a href="https://qsh-zh.github.io/deis" target="_blank">Project&nbsp;Page</a> 
+</div>
+<br><br>
 
-A clean implementation for DEIS and iPNDM
 
 ![deis](assets/fig1.png)
 

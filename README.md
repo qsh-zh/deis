@@ -15,7 +15,7 @@
 
 --------------------
 
-DEIS accelerates large scale text-to-image [eDiff-I](https://deepimagination.cc/eDiff-I/)
+* **2021-11-17** DEIS accelerates large scale text-to-image [eDiff-I](https://deepimagination.cc/eDiff-I/)
 
 ![ediffi](assets/ediffi.png)
 

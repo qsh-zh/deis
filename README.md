@@ -13,6 +13,13 @@
 ![deis](assets/fig1.png)
 
 
+--------------------
+
+DEIS accelerates large scale text-to-image [eDiff-I](https://deepimagination.cc/eDiff-I/)
+
+![ediffi](assets/ediffi.png)
+
+
 # Update
 
 * **BREAKING CHANGE**: [v1.0](https://github.com/qsh-zh/deis/tree/v1.0) API changes greatly as we add `ρRK-DEIS` and `ρAB-DEIS` algorithms and more choice for time scheduling. If you are only interested in `tAB-DEIS` / `iPNDM` or previous codebase, check [v0.1](https://github.com/qsh-zh/deis/tree/v0.1)
